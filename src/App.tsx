@@ -422,7 +422,7 @@ export default function App() {
       <MusicPlayer />
 
       {/* Boyfriend Customizer Board */}
-      <BoyfriendDashboard config={config} onSaveConfig={handleSaveConfig} />
+      
     </div>
   );
 }
