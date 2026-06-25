@@ -15,7 +15,7 @@ import { MusicPlayer } from "./components/MusicPlayer";
 const DEFAULT_CONFIG: AnniversaryConfig = {
   senderName: "Miku",
   receiverName: "Kiku",
-  anniversaryDate: "2025-06-26", // Exact 1 year anniversary from tomorrow June 26, 2026!
+  anniversaryDate: "2025-06-26T00:00:00+05:30", // IST midnight — fixes the 5.5hr offset bug
   letterTitle: "To My Beautiful Kikuchan",
   letterContent: `Happy 1 Year Anniversary, my love!
 
@@ -145,9 +145,12 @@ export default function App() {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        // Automatically upgrade/migrate stale default date
-        if (parsed.anniversaryDate === "2025-06-25") {
-          parsed.anniversaryDate = "2025-06-26";
+        // Migrate any stale date strings to the IST-correct format
+        if (
+          parsed.anniversaryDate === "2025-06-25" ||
+          parsed.anniversaryDate === "2025-06-26"
+        ) {
+          parsed.anniversaryDate = "2025-06-26T00:00:00+05:30";
           localStorage.setItem("our_anniversary_config", JSON.stringify(parsed));
         }
         return parsed;
@@ -353,7 +356,6 @@ export default function App() {
         <div className="bg-white/85 p-1.5 rounded-2xl border border-[#efebe9] shadow-sm flex overflow-x-auto md:flex-wrap gap-1.5 md:gap-2 md:justify-around scrollbar-none snap-x">
           {[
             { id: "letter", label: "Love Letter", icon: Mail },
-            
             { id: "jar", label: "Love Jar", icon: Sparkles },
             { id: "coupons", label: "Vouchers", icon: Gift },
             { id: "quiz", label: "Quiz Trivia", icon: HelpCircle }
