@@ -1,0 +1,6 @@
+{
+  "name": "Our Anniversary Story",
+  "description": "An interactive, personalized 1-year anniversary web experience featuring an animated digital letter envelope, custom memories timeline, sweet coupons, a relationship trivia quiz, and AI-powered romance generators.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
