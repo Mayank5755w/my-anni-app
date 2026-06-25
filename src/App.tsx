@@ -129,10 +129,10 @@ With all my heart,`,
     }
   ],
   bgPhotos: [
-    "/public/5.jpeg",
-    "/public/2.jpeg",
-    "/public/3.jpeg",
-    "/public/4.jpeg"
+    "/5.jpeg",
+    "/2.jpeg",
+    "/3.jpeg",
+    "/4.jpeg"
   ],
   bgOpacity: 50,
   bgBlur: 2,
